@@ -280,17 +280,17 @@ void App::init()
     // Create primary views.
     m_tab->setIconSize(QSize(24, 24));
     QWidget* w = new FixtureManager(m_tab, m_doc);
-    m_tab->addTab(w, QIcon(":/fixture.png"), tr("Fixtures"));
+    m_tab->addTab(w, QIcon(":/fixture.png"), tr("Fi&xtures"));
     w = new FunctionManager(m_tab, m_doc);
-    m_tab->addTab(w, QIcon(":/function.png"), tr("Functions"));
+    m_tab->addTab(w, QIcon(":/function.png"), tr("&Functions"));
     w = new ShowManager(m_tab, m_doc);
-    m_tab->addTab(w, QIcon(":/show.png"), tr("Shows"));
+    m_tab->addTab(w, QIcon(":/show.png"), tr("&Shows"));
     w = new VirtualConsole(m_tab, m_doc);
-    m_tab->addTab(w, QIcon(":/virtualconsole.png"), tr("Virtual Console"));
+    m_tab->addTab(w, QIcon(":/virtualconsole.png"), tr("Virtual &Console"));
     w = new SimpleDesk(m_tab, m_doc);
-    m_tab->addTab(w, QIcon(":/slidermatrix.png"), tr("Simple Desk"));
+    m_tab->addTab(w, QIcon(":/slidermatrix.png"), tr("Simple &Desk"));
     w = new InputOutputManager(m_tab, m_doc);
-    m_tab->addTab(w, QIcon(":/input_output.png"), tr("Inputs/Outputs"));
+    m_tab->addTab(w, QIcon(":/input_output.png"), tr("Inputs/&Outputs"));
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     /* Detach the tab's widget onto a new window on doubleClick */
@@ -667,7 +667,7 @@ void App::initActions()
     /* Control actions */
     m_modeToggleAction = new QAction(QIcon(":/operate.png"), tr("&Operate"), this);
     m_modeToggleAction->setToolTip(tr("Switch to operate mode"));
-    m_modeToggleAction->setShortcut(QKeySequence(tr("CTRL+F12", "Control|Toggle operate/design mode")));
+    m_modeToggleAction->setShortcut(QKeySequence(tr("CTRL+ALT+M", "Control|Toggle operate/design mode")));
     connect(m_modeToggleAction, SIGNAL(triggered(bool)), this, SLOT(slotModeToggle()));
 
     m_controlMonitorAction = new QAction(QIcon(":/monitor.png"), tr("&Monitor"), this);
@@ -681,6 +681,7 @@ void App::initActions()
     m_controlBlackoutAction->setCheckable(true);
     connect(m_controlBlackoutAction, SIGNAL(triggered(bool)), this, SLOT(slotControlBlackout()));
     m_controlBlackoutAction->setChecked(m_doc->inputOutputMap()->blackout());
+    m_controlBlackoutAction->setShortcut(QKeySequence("CTRL+ALT+O"));
 
     m_liveEditAction = new QAction(QIcon(":/liveedit.png"), tr("Live edit a function"), this);
     connect(m_liveEditAction, SIGNAL(triggered()), this, SLOT(slotFunctionLiveEdit()));
@@ -696,7 +697,7 @@ void App::initActions()
     connect(m_dumpDmxAction, SIGNAL(triggered()), this, SLOT(slotDumpDmxIntoFunction()));
 
     m_controlPanicAction = new QAction(QIcon(":/panic.png"), tr("Stop ALL functions!"), this);
-    m_controlPanicAction->setShortcut(QKeySequence("CTRL+SHIFT+ESC"));
+    m_controlPanicAction->setShortcut(QKeySequence("CTRL+ALT+X"));
     connect(m_controlPanicAction, SIGNAL(triggered(bool)), this, SLOT(slotControlPanic()));
 
     m_fadeAndStopMenu = new QMenu();

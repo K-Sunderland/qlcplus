@@ -87,6 +87,8 @@ ChaserEditor::ChaserEditor(QWidget* parent, Chaser* chaser, Doc* doc, bool liveM
     m_pasteAction->setShortcut(QKeySequence(QKeySequence::Paste));
     connect(m_pasteAction, SIGNAL(triggered(bool)), this, SLOT(slotPasteClicked()));
 
+
+    m_add->setShortcut(QKeySequence("CTRL+ALT+="));
     /* Name edit */
     m_nameEdit->setText(m_chaser->name());
     m_nameEdit->setSelection(0, m_nameEdit->text().length());

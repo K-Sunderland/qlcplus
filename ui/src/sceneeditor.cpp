@@ -181,35 +181,41 @@ void SceneEditor::init(bool applyValues)
     this->layout()->setContentsMargins(8, 3, 8, 3);
 
     /* Actions */
+    m_enableChannelsButton->setShortcut(QKeySequence("CTRL+ALT+E"));
     m_enableCurrentAction = new QAction(QIcon(":/check.png"),
                                         tr("Enable all channels in current fixture"), this);
     m_disableCurrentAction = new QAction(QIcon(":/uncheck.png"),
                                          tr("Disable all channels in current fixture"), this);
     m_copyAction = new QAction(QIcon(":/editcopy.png"),
                                tr("Copy current values to clipboard"), this);
+    m_copyAction->setShortcut(QKeySequence("CTRL+C"));
     m_pasteAction = new QAction(QIcon(":/editpaste.png"),
                                 tr("Paste clipboard values to current fixture"), this);
+    m_pasteAction->setShortcut(QKeySequence("CTRL+V"));
     m_copyToAllAction = new QAction(QIcon(":/editcopyall.png"),
                                     tr("Copy current values to all fixtures"), this);
     m_colorToolAction = new QAction(QIcon(":/color.png"),
                                     tr("Color tool for CMY/RGB-capable fixtures"), this);
+    m_colorToolAction->setShortcut(QKeySequence("CTRL+ALT+P"));
     m_positionToolAction = new QAction(QIcon(":/xypad.png"),
                                     tr("Position tool for moving heads/scanners"), this);
     m_tabViewAction = new QAction(QIcon(":/tabview.png"),
                                     tr("Switch between tab view and all channels view"), this);
+    m_tabViewAction->setShortcut(QKeySequence("CTRL+ALT+F"));
     m_blindAction = new QAction(QIcon(":/blind.png"),
                                 tr("Toggle blind mode"), this);
+    m_blindAction->setShortcut(QKeySequence("CTRL+ALT+B"));
     m_speedDialAction = new QAction(QIcon(":/speed.png"),
                                     tr("Show/Hide speed dial window"), this);
     m_recordAction = new QAction(QIcon(":/record.png"),
                                  tr("Clone this scene and append as a new step to the selected chaser"), this);
 
     m_nextTabAction = new QAction(QIcon(":/forward.png"), tr("Go to next fixture tab"), this);
-    m_nextTabAction->setShortcut(QKeySequence("Alt+Right"));
+    m_nextTabAction->setShortcut(QKeySequence("CTRL+ALT+PgUp"));
     connect(m_nextTabAction, SIGNAL(triggered(bool)),
             this, SLOT(slotGoToNextTab()));
     m_prevTabAction = new QAction(QIcon(":/back.png"), tr("Go to previous fixture tab"), this);
-    m_prevTabAction->setShortcut(QKeySequence("Alt+Left"));
+    m_prevTabAction->setShortcut(QKeySequence("CTRL+ALT+PgDown"));
     connect(m_prevTabAction, SIGNAL(triggered(bool)),
             this, SLOT(slotGoToPreviousTab()));
 

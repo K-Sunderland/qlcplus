@@ -207,6 +207,7 @@ void SimpleDesk::initTopSide()
     m_viewModeButton->setMinimumSize(QSize(36, 36));
     m_viewModeButton->setMaximumSize(QSize(36, 36));
     m_viewModeButton->setToolTip(tr("View mode"));
+    m_viewModeButton->setShortcut(QKeySequence("CTRL+ALT+F"));
     m_viewModeButton->setCheckable(true);
     uniLay->addWidget(m_viewModeButton);
 
@@ -216,6 +217,7 @@ void SimpleDesk::initTopSide()
     m_universePageDownButton->setMinimumSize(QSize(36, 36));
     m_universePageDownButton->setMaximumSize(QSize(36, 36));
     m_universePageDownButton->setToolTip(tr("Previous page"));
+    m_universePageDownButton->setShortcut(QKeySequence("CTRL+ALT+PgUp"));
     uniLay->addWidget(m_universePageDownButton);
 
     m_universePageSpin = new QSpinBox(this);
@@ -232,6 +234,7 @@ void SimpleDesk::initTopSide()
     m_universePageUpButton->setMinimumSize(QSize(36, 36));
     m_universePageUpButton->setMaximumSize(QSize(36, 36));
     m_universePageUpButton->setToolTip(tr("Next page"));
+    m_universePageUpButton->setShortcut(QKeySequence("CTRL+ALT+PgDown"));
     uniLay->addWidget(m_universePageUpButton);
 
     m_universeResetButton = new QToolButton(this);
@@ -240,6 +243,7 @@ void SimpleDesk::initTopSide()
     m_universeResetButton->setMinimumSize(QSize(36, 36));
     m_universeResetButton->setMaximumSize(QSize(36, 36));
     m_universeResetButton->setToolTip(tr("Reset universe"));
+    m_universeResetButton->setShortcut(QKeySequence("CTRL+ALT+R"));
     uniLay->addWidget(m_universeResetButton);
 
     uniLay->addSpacing(50);

@@ -204,6 +204,7 @@ void ShowManager::initActions()
 
     m_addTrackAction = new QAction(QIcon(":/edit_add.png"),
                                    tr("Add a &track or an existing function"), this);
+    m_addTrackAction->setShortcut(QKeySequence("CTRL+ALT+="));
     m_addTrackAction->setShortcut(QKeySequence("CTRL+N"));
     connect(m_addTrackAction, SIGNAL(triggered(bool)),
             this, SLOT(slotAddItem()));
@@ -230,14 +231,14 @@ void ShowManager::initActions()
     /* Edit actions */
     m_copyAction = new QAction(QIcon(":/editcopy.png"),
                                 tr("&Copy"), this);
-    m_copyAction->setShortcut(QKeySequence("CTRL+C"));
+    //m_copyAction->setShortcut(QKeySequence("CTRL+C"));
     connect(m_copyAction, SIGNAL(triggered(bool)),
             this, SLOT(slotCopy()));
     m_copyAction->setEnabled(false);
 
     m_pasteAction = new QAction(QIcon(":/editpaste.png"),
                                tr("&Paste"), this);
-    m_pasteAction->setShortcut(QKeySequence("CTRL+V"));
+    //m_pasteAction->setShortcut(QKeySequence("CTRL+V"));
     connect(m_pasteAction, SIGNAL(triggered(bool)),
             this, SLOT(slotPaste()));
     m_pasteAction->setEnabled(false);
@@ -280,12 +281,14 @@ void ShowManager::initActions()
     m_stopAction = new QAction(QIcon(":/player_stop.png"),
                                  tr("St&op"), this);
     m_stopAction->setShortcut(QKeySequence("CTRL+SPACE"));
+    m_stopAction->setShortcut(QKeySequence("ALT+SHIFT+*"));
     connect(m_stopAction, SIGNAL(triggered(bool)),
             this, SLOT(slotStopPlayback()));
 
     m_playAction = new QAction(QIcon(":/player_play.png"),
                                  tr("&Play"), this);
     m_playAction->setShortcut(QKeySequence("SPACE"));
+    m_playAction->setShortcut(QKeySequence("ALT+SHIFT++"));
     connect(m_playAction, SIGNAL(triggered(bool)),
             this, SLOT(slotStartPlayback()));
 }

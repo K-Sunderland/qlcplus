@@ -880,6 +880,7 @@ void FixtureManager::initActions()
     // Fixture actions
     m_addAction = new QAction(QIcon(":/edit_add.png"),
                               tr("Add fixture..."), this);
+    m_addAction->setShortcut(QKeySequence("CTRL+ALT+="));
     connect(m_addAction, SIGNAL(triggered(bool)),
             this, SLOT(slotAdd()));
 

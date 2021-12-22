@@ -79,12 +79,12 @@ ChaserEditor::ChaserEditor(QWidget* parent, Chaser* chaser, Doc* doc, bool liveM
 
     m_copyAction = new QAction(QIcon(":/editcopy.png"), tr("Copy"), this);
     m_copyButton->setDefaultAction(m_copyAction);
-    m_copyAction->setShortcut(QKeySequence(QKeySequence::Copy));
+    //m_copyAction->setShortcut(QKeySequence(QKeySequence::Copy));
     connect(m_copyAction, SIGNAL(triggered(bool)), this, SLOT(slotCopyClicked()));
 
     m_pasteAction = new QAction(QIcon(":/editpaste.png"), tr("Paste"), this);
     m_pasteButton->setDefaultAction(m_pasteAction);
-    m_pasteAction->setShortcut(QKeySequence(QKeySequence::Paste));
+    //m_pasteAction->setShortcut(QKeySequence(QKeySequence::Paste));
     connect(m_pasteAction, SIGNAL(triggered(bool)), this, SLOT(slotPasteClicked()));
 
 

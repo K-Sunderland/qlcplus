@@ -211,11 +211,11 @@ void SceneEditor::init(bool applyValues)
                                  tr("Clone this scene and append as a new step to the selected chaser"), this);
 
     m_nextTabAction = new QAction(QIcon(":/forward.png"), tr("Go to next fixture tab"), this);
-    m_nextTabAction->setShortcut(QKeySequence("CTRL+ALT+PgUp"));
+    m_nextTabAction->setShortcut(QKeySequence("CTRL+ALT+PgDown"));
     connect(m_nextTabAction, SIGNAL(triggered(bool)),
             this, SLOT(slotGoToNextTab()));
     m_prevTabAction = new QAction(QIcon(":/back.png"), tr("Go to previous fixture tab"), this);
-    m_prevTabAction->setShortcut(QKeySequence("CTRL+ALT+PgDown"));
+    m_prevTabAction->setShortcut(QKeySequence("CTRL+ALT+PgUp"));
     connect(m_prevTabAction, SIGNAL(triggered(bool)),
             this, SLOT(slotGoToPreviousTab()));
 
@@ -261,8 +261,9 @@ void SceneEditor::init(bool applyValues)
             this, SLOT(slotCopy()));
     connect(m_pasteAction, SIGNAL(triggered(bool)),
             this, SLOT(slotPaste()));
-    connect(m_copyToAllAction, SIGNAL(triggered(bool)),
+    /*connect(m_copyToAllAction, SIGNAL(triggered(bool)),
             this, SLOT(slotCopyToAll()));
+            */
     connect(m_colorToolAction, SIGNAL(triggered(bool)),
             this, SLOT(slotColorTool()));
     connect(m_positionToolAction, SIGNAL(triggered(bool)),
